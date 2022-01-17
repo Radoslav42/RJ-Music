@@ -1,0 +1,4 @@
+Pre spustenie Built-in web servera na porte localhost:8000 treba do terminalu IDE napisat:
+php artisan serve
+
+mysql -u root

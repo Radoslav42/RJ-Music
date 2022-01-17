@@ -1,0 +1,63 @@
+h1{
+    font-family: "Brush Script MT";
+    font-size: 60px;
+}
+h1, h2{
+    color: #a1f0dd;
+}
+h2 {
+    font-size: 50px;
+}
+p {
+    color: #e1fff5;
+}
+body{
+    position: relative;
+    background-image: url("../images/BackgroundBody.jpg");
+    background-position: center;
+}
+#loginContainer {
+    margin-top: 8em;
+}
+#userContainer {
+    margin-top: 1em;
+}
+
+
+#carouselWithCaptions{
+    position: absolute;
+    width: 40%;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+}
+.navbar {
+    background: linear-gradient(rgba(60,100,100,2), rgba(0,0,100,0))!important;
+}
+.carousel-item {
+    opacity:  90%;
+
+}
+.nav-link:hover  {
+    color: #a1f0dd!important;
+}
+.nav-link  {
+    color: #656565!important;
+}
+.nav-link.active  {
+    color: #a1f0dd!important;
+}
+label {
+    color: #e1fff5;
+}
+#buttonForm {
+    color: #a1f0dd ;
+    background-color:#38423f;
+    border-color: black;
+    margin-top: 1rem;
+}
+#buttonForm:hover {
+    background-color: #2a6130;
+    border-color: #a1f0dd;
+
+}
