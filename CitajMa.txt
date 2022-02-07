@@ -2,3 +2,23 @@ Pre spustenie Built-in web servera na porte localhost:8000 treba do terminalu ID
 php artisan serve
 
 mysql -u root
+Pre vytvorenie modeloveho objektu:
+php artisan make:model [nazovObjektu]
+Pre vytvorenie kontrolera:
+php artisan make:controller [nazovKontrolera]
+
+
+php artisan migrate (sluzi na vytvorenie tabuliek, zavislosti medzi nimi a pod.(alterativa ddl, staci to zavolat, a implementuje sa cela databaza, cize vsetky tabulky, ktore som si vytvoril, vztahy a podobne sa mi pridaju do databazy, staci potom len refresh stlacit)(podobnym prikazom sa aj dropnu) 
+alebo v kode, ja som toto vsak nepouzival, nakolko som si tabulky raz vytvoril a uz ich mazat viac nebudem
+Route::get(‘run-migrations’, function () {
+    try {
+        //the migrate command
+        return Artisan::call(‘migrate’);
+    } catch (Exception $e) {
+        //get the error message and display the error
+        $e->getMessage();
+        print($e);
+    }
+});
+
+

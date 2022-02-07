@@ -2,6 +2,49 @@
 @extends('layouts.layout')
 @section('content')
 
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" >
+            <h1><img src="images/RJ_Music_500x500.png" alt="" width="70" height="70" class="d-inline-block align-text-top">   RJ-Music</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            @if ($authorId != null)
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/home" >Domov</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  href="/about">O mne</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/albums" >Albumy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/beforeSelectAuthor" >Interpreti</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/beforeLogin">Prihlásenie</a>
+                    </li>
+                </ul>
+            @else
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/home" >Domov</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/beforeSelectAuthor" >Interpreti</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/beforeLogin">Prihlásenie</a>
+                    </li>
+                </ul>
+            @endif
+        </div>
+    </div>
+</nav>
 <div id="carouselWithCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselWithCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -40,28 +83,19 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <h1><img src="images/RJ_Music_500x500.png" alt="" width="70" height="70" class="d-inline-block align-text-top">   RJ-Music</h1>
-        </a>
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/home" >Domov</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"  href="/about">O mne</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/beforeLogin">Prihlásenie</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<div class=" panelForSmallAlbumImagesOrText">
+    <img src="images/RJ_Music_500x500.png" alt="" class="smallAlbumImage">
+    <img src="images/RJ_Music_500x500.png" alt="" class="smallAlbumImage">
+    <img src="images/RJ_Music_500x500.png" alt="" class="smallAlbumImage">
+    <img src="images/RJ_Music_500x500.png" alt="" class="smallAlbumImage">
+    <img src="images/RJ_Music_500x500.png" alt="" class="smallAlbumImage">
+    <img src="images/RJ_Music_500x500.png" alt="" class="smallAlbumImage">
+</div>
+<div class=" panelForSmallAlbumImagesOrText">
+    @if ($authorId == null)
+        <p>Najdi si svojho interpreta, precitaj si o jeho tvorbe, vypocuj si skladby jeho albumov.</p>
+    @else
+        <p>Tu bude popis autora. Description about author. asdasdasddas sada sadas dsad asdsa dsakodskadokas sad ako dkasdk asodkasd asd ask oas  dfsdf sfdsf </p>
+    @endif
+</div>
 @endsection
