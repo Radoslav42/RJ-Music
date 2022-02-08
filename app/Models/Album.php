@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Album extends Model
 {
-    protected $appends = ['authorNames', 'numberSongs', 'genre', 'length', 'size'];
+    protected $appends = ['authorNames', 'imageFilename', 'numberSongs', 'genre', 'length', 'size'];
     public function __construct(array $attributes = [])
     {
         $this->timestamps = false;
@@ -39,6 +40,10 @@ class Album extends Model
         }
         return $authorNames;
     }
+    public function getImageFilename(): string
+    {
+        return "Album" . $this->getAttribute('id') . "Image";
+    }
     public function getNumberSongs() : int
     {
         return $this->songs()->get()->count();
@@ -63,12 +68,24 @@ class Album extends Model
     }
     public function getLength()
     {
-        $length = 0;
+        $time = new Carbon();
+        $time->setSeconds(0);
+        $time->minutes(0);
+        $time->setHours(0);
+        $sumSeconds = 0;
+
+        $hours = floor($sumSeconds/3600);
+        $minutes = floor(($sumSeconds % 3600)/60);
+        $seconds = (($sumSeconds%3600)%60);
+
+
         foreach ($this->songs()->get() as $song)
         {
-            $length += $song->getAttribute('length');
+            $explodedTime = explode(':', $song->getAttribute('length'));
+            $seconds = $explodedTime[0]*3600+$explodedTime[1]*60+$explodedTime[2];
+            $time->addSecond($seconds);
         }
-        return $length;
+        return $time->format('H:i:s');
     }
     public function getSize() : int
     {
@@ -77,7 +94,7 @@ class Album extends Model
         {
             $size += $song->getAttribute('size');
         }
-        return $size;
+        return $size / 1000000;
     }
     use HasFactory;
 }

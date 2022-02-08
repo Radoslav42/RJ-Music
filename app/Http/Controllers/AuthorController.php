@@ -34,7 +34,6 @@ class AuthorController extends Controller
             $authorId = $user->getAttribute('authorId');
             if ($authorId != null)
             {
-
                 $author = AuthorController::getAuthorById($authorId);
                 $view = view('author', ['titleText' => "Môj interpret",
                     'sessionMessage' => session()->has("sessionMessage") ? session()->get("sessionMessage") : "",
@@ -109,7 +108,7 @@ class AuthorController extends Controller
                 $user->setAttribute('authorId', $authorId);
                 $user->save();
             }
-            return redirect('beforeActionWithAuthor');
+            return redirect('beforeUpdateAlbum', ['']);
         }
         else
         {
@@ -137,7 +136,7 @@ class AuthorController extends Controller
     {
         $view = view('authors', ['titleText' => "Interpreti",
             'sessionMessage' => session()->has("sessionMessage") ? session()->get("sessionMessage") : "",
-            'authors' => "tu pojde zoznam autorov"]);
+            'authors' => Author::all()]);
         session()->put('sessionMessage', "");
         return $view;
     }

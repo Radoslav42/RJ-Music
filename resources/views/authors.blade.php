@@ -24,5 +24,55 @@
         </div>
     </nav>
 
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-md-12 card-header text-center font-weight-bold">
+                <h2>Interpreti</h2>
+            </div>
+            <div class="col-md-12">
+                <table class="table" id="datatable-ajax-crud" >
+                    <thead>
+                    <tr>
+                        <th scope="col"><p>Obrázok Interpreta</p></th>
+                        <th scope="col"><p>Meno</p></th>
+                        <th scope="col"><p>Priezvisko</p></th>
+                        <th scope="col"><p>Možnosti</p></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @if ($authors != null)
+                        @foreach ($authors as $author)
+                            <tr>
+                                <td><img src="{{ url('storage/Files/'. "Author" . $author->id . "Image") }}" alt="" width="100" height="100" class="d-inline-block align-text-top"></img></td>
+                                <td><p>{{ $author->firstname }}</p></td>
+                                <td><p>{{ $author->lastname }}</p></td>
+                                <td>
 
+                                    <a href="{{url('/home', ['authorId' => $author->id])}}" class="btn btn-primary buttonEditDeleteInTable ">Domov</a>
+                                    <a href="{{url('/about', ['authorId' => $author->id])}}" class="btn btn-primary buttonEditDeleteInTable ">O mne</a>
+                                    <a href="{{url('/beforeSelectAlbum', ['authorId' => $author->id])}}" class="btn btn-primary buttonEditDeleteInTable">Albumy</a>
+
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script >
+
+
+        function TextChange(inputText){
+            count = 0;
+            for (i = 0; i < authors.length; i++)
+            {
+                if (authors[i].firstname.includes(inputText) || authors[i].lastname.includes(inputText))
+                    count++;
+            }
+            $countFindings = document.getElementById("countFindings");
+            $countFindings.value = count;
+        }
+    </script>
 @endsection

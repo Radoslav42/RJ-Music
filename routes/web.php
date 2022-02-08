@@ -16,9 +16,12 @@ use App\Http\Controllers\AlbumController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//read-only
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/about',[AboutController::class, 'index']);
+Route::get('/beforeSelectSong/{albumId}/{authorId}', [AlbumController::class, 'beforeSelectSong'])->name('beforeSelectSong');
+Route::get('/about/{authorId}',[AboutController::class, 'index'])->name('about');
+Route::get('/beforeSelectAlbum/{authorId}',[AlbumController::class, 'beforeSelectAlbum'])->name('beforeSelectAlbum');
+Route::get('/home/{authorId}', [HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index']);
 //user
 Route::get('/beforeLogin', [UserController::class, 'beforeLogin']);
@@ -47,17 +50,15 @@ Route::get('/beforeSelectAuthor', [AuthorController::class, 'beforeSelectAuthor'
 //albums
 Route::get('/beforeActionWithAlbums', [AlbumController::class, 'beforeActionWithAlbums']);
 Route::post('/createAlbum', [AlbumController::class, 'createAlbum']);
-Route::post('/editAlbum', [AlbumController::class, 'editAlbum']);
+Route::post('/updateAlbum/{albumId}', [AlbumController::class, 'updateAlbum']);
 Route::get('/deleteAlbum/{albumId}', [AlbumController::class, 'deleteAlbum']);
 //Route::post('/createAlbum', [AuthorController::class, 'createAlbum']);
 
-//Route::post('/getAlbum', [AuthorController::class, 'getAlbum']);
-//Route::get('/beforeUpdateOrDeleteAlbum', [AuthorController::class, 'beforeUpdateOrDeleteAlbum']);
-//Route::post('/updateAlbum', [AuthorController::class, 'updateAlbum']);
-//Route::post('/deleteAlbum', [AuthorController::class, 'deleteAlbum']);
-
 //in album, songs
 
-Route::get('/beforeUpdateAlbum/{albumId}', [AlbumController::class, 'beforeCreateUpdateAlbum'])->name("beforeUpdateAlbum");
+Route::get('/beforeUpdateAlbum/{albumId}', [AlbumController::class, 'beforeUpdateAlbum'])->name("beforeUpdateAlbum");
 Route::get('/beforeCreateAlbum', [AlbumController::class, 'beforeCreateAlbum']);
 
+Route::post('/addSong', [AlbumController::class, 'addSong']);
+Route::post('/updateSong', [AlbumController::class, 'updateSong']);
+Route::get('/deleteSong/{songId}', [AlbumController::class, 'deleteSong']);
