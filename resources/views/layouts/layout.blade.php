@@ -13,9 +13,9 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.4/datatables.min.js"></script>
     <script type="text/javascript">
-
-
-
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>

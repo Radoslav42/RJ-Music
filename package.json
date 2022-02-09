@@ -1,18 +1,41 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production"
-    },
-    "devDependencies": {
-        "axios": "^0.21",
-        "laravel-mix": "^6.0.6",
-        "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
-    }
+  "private": true,
+  "scripts": {
+    "dev": "npm run development",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "npm run production",
+    "production": "mix --production"
+  },
+  "devDependencies": {
+    "axios": "^0.21",
+    "laravel-mix": "^6.0.6",
+    "lodash": "^4.17.19",
+    "postcss": "^8.1.14"
+  },
+  "name": "RJ-Music",
+  "description": "",
+  "version": "1.0.0",
+  "main": "webpack.mix.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "axios": "^0.21.4",
+    "postcss": "^8.4.5",
+    "lodash": "^4.17.21"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Radoslav42/RJ-Music.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Radoslav42/RJ-Music/issues"
+  },
+  "homepage": "https://github.com/Radoslav42/RJ-Music"
 }

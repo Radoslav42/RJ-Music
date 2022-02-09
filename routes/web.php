@@ -16,6 +16,9 @@ use App\Http\Controllers\AlbumController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/getAuthorImgUrl/{value}', function($value) {
+    return url('storage/Files/'. "Author" . $value . "Image");
+});
 //read-only
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/beforeSelectSong/{albumId}/{authorId}', [AlbumController::class, 'beforeSelectSong'])->name('beforeSelectSong');

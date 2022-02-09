@@ -1,6 +1,8 @@
 Pre spustenie Built-in web servera na porte localhost:8000 treba do terminalu IDE napisat:
 php artisan serve
 
+!!!! u tabuliek authorable a albumable sa nedavali cudzie kluce preto, lebo nevieme, ci sa bude jednat o prepojenie autor-album alebo autor-skladba, rovnako v druhom pripade, a teda nemozeme ziadnu akciu vykonat, lebo nemozem konkretizovat tabulku(neviem, ci sa jedna o jedno alebo druhu), jedine, co by sa dalo urobit je, ze ked sa zmaze autor, tak sa zmazu vsetky zavislosti).
+
 mysql -u root
 Pre vytvorenie modeloveho objektu:
 php artisan make:model [nazovObjektu]

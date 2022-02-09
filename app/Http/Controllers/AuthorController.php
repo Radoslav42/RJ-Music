@@ -108,7 +108,7 @@ class AuthorController extends Controller
                 $user->setAttribute('authorId', $authorId);
                 $user->save();
             }
-            return redirect('beforeUpdateAlbum', ['']);
+            return redirect('beforeActionWithAuthor');
         }
         else
         {
