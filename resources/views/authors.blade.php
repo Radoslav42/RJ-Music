@@ -109,7 +109,7 @@
                         tr = table.insertRow(rowCnt);
 
                         for (let c = 0; c < arrHead.length; c++) {
-                            let td = document.createElement('td');          // TABLE DEFINITION.
+                            let td = document.createElement('td');
                             td = tr.insertCell(c);
 
                             if (c == 0) {

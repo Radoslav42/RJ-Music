@@ -35,7 +35,7 @@ class AuthorController extends Controller
             if ($authorId != null)
             {
                 $author = AuthorController::getAuthorById($authorId);
-                $view = view('author', ['titleText' => "Môj interpret",
+                $view = view('author', ['titleText' => "Môj interpret",'existAuthor' => true,
                     'sessionMessage' => session()->has("sessionMessage") ? session()->get("sessionMessage") : "",
                     'firstname' => $author->getAttribute('firstname'), 'lastname' => $author->getAttribute('lastname'),
                     'imageFilename' => "Author" . $authorId. "Image", 'descriptionText' => Storage::get("public\\Files\\" . "Author" . $authorId . "Description" )]);
@@ -44,7 +44,7 @@ class AuthorController extends Controller
             }
             else
             {
-                $view = view('author', ['titleText' => "Môj interpret",
+                $view = view('author', ['titleText' => "Môj interpret", 'existAuthor' => false,
                     'sessionMessage' => session()->has("sessionMessage") ? session()->get("sessionMessage") : "",
                     'firstname' => "", 'lastname' => "",
                     'imageFilename' => "", 'descriptionText' => ""]);

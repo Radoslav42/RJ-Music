@@ -16,9 +16,11 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/beforeActionWithAuthor" >Údaje interpreta</a>
                     </li>
+                    @if ($existAuthor)
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/beforeActionWithAlbums" >Albumy interpreta</a>
                     </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link" href="/beforeSelectAuthor">Interpreti</a>
                     </li>
